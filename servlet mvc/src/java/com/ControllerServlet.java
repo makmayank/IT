@@ -21,6 +21,7 @@ public class ControllerServlet extends HttpServlet
     {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+  
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         LoginBean bean=new LoginBean();  
