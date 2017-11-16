@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <form onsubmit="submitForm()" method="post">
+    
+      <div class="form-group">
+        <label>Enter numbers:</label>
+        <input type="text" class="form-control" id="numbers" placeholder="input example: 1 5 3 2 7 8">
+      </div>
+      
+      <div>
+        <label id="result"></label>
+      </div>
+
+      <div>
+        <center><button>Sort</button></center>
+      </div>
+
+  </form>
+</div>
+</body>
+<script type="text/javascript">
+
+  function submitForm() {
+    number_array = document.getElementById("numbers").value.split(" ");
+    sorted_string = bubbleSort(number_array).join(" ");
+    document.getElementById("result").innerHTML = sorted_string;
+  }
+
+  function bubbleSort(a)
+  {
+      var swapped;
+      do {
+          swapped = false;
+          for (var i=0; i < a.length-1; i++) {
+              if (a[i] > a[i+1]) {
+                  var temp = a[i];
+                  a[i] = a[i+1];
+                  a[i+1] = temp;
+                  swapped = true;
+              }
+          }
+      } while (swapped);
+      return a;
+  }
+
+</script>
+</html>

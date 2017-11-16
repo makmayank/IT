@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<table class="table table-dark">
+		<tr>
+			<td style="width:50%"><input type="text" id="push_input" placeholder="enter element"></td>
+			<td style="width:50%"><button onclick="push()">Push</button></td>
+		</tr>
+		<tr>
+			<td colspan="2"><center><button onclick="pop()">Pop</button></center></td>
+		</tr>
+	</table>
+
+	<label id="result"></label>
+</body>
+
+<script type="text/javascript">
+	function Stack() {
+	 
+	   var items = [];
+	   var result_label = document.getElementById("result");
+		 
+	   this.push = function(element){
+	       items.push(element);
+	       result_label.innerHTML = "Pushed: ".concat(element);
+	       document.getElementById("push_input").value = "";
+	   };
+	 
+	   this.pop = function(){
+	   		if(items.length == 0){
+	   			result_label.innerHTML = "Stack is empty!";
+	   		}
+	   		else{
+	   			result_label.innerHTML = "Poped: ".concat(items.pop());
+	   		}
+	   };
+	 
+	   this.peek = function(){
+	       return items[items.length-1];
+	   };
+	 
+	   this.isEmpty = function(){
+	       return items.length == 0;
+	   };
+	 
+	   this.size = function(){
+	       return items.length;
+	   };
+	 
+	   this.clear = function(){
+	       items = [];
+	   };
+	 
+	   this.print = function(){
+	       console.log(items.toString());
+	   };
+	}
+
+	var stack = new Stack();
+	
+	function push(){
+		element = document.getElementById("push_input").value;
+		stack.push(element);
+	}
+
+	function pop() {
+		stack.pop();
+	}
+</script>
+</html>
