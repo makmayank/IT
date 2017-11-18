@@ -1,5 +1,6 @@
 
 
+JSP/
 practical programs 1 Display pattern line 1 1 2 1 2 3
 
 2 Show Radio button for maths operation. and act according on given input
